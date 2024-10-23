@@ -7,7 +7,7 @@ import { doc, getDoc } from "firebase/firestore";
 import Link from "next/link"
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-export default function Navbar1() {
+export default function Navbar() {
     const [user, setUser] = useState<UserType | undefined>(undefined);
     const router = useRouter();
 
