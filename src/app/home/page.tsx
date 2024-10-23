@@ -1,7 +1,6 @@
 'use client';
 
-import { blogType } from '@/types/blogType';
-import { collection, getDocs, onSnapshot } from 'firebase/firestore';
+import { collection, onSnapshot } from 'firebase/firestore';
 
 
 import { useRouter } from 'next/navigation';

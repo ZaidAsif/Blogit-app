@@ -2,22 +2,20 @@
 
 import { auth, db } from "@/app/firebase/firebase-config";
 import Loading from "@/components/loading";
-import { BlogCardType } from "@/types/blogCardType";
-import { addDoc, collection, doc, DocumentData, getDocs, onSnapshot, query, where } from "firebase/firestore";
+import { addDoc, collection, DocumentData, getDocs, onSnapshot, query, where } from "firebase/firestore";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Markdown from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-type CommentsType = {
-  comment: string,
-  userUid: string,
-  createdAt: string
-}
+// type CommentsType = {
+//   comment: string,
+//   userUid: string,
+//   createdAt: string
+// }
 
-export default function blogDetails({ params }: { params: { slug: string } }) {
+export default function BlogDetails({ params }: { params: { slug: string } }) {
   const [blog, setBlog] = useState<DocumentData | null>(null);
   const [newComment, setNewComment] = useState<string>('');
 
@@ -65,8 +63,8 @@ export default function blogDetails({ params }: { params: { slug: string } }) {
   }
 
   const addNewComment = async () => {
-    let collectionRef = collection(db, `blogs/${blog?.firebaseId}/comments`);
-    let commentObj = {
+    const collectionRef = collection(db, `blogs/${blog?.firebaseId}/comments`);
+    const commentObj = {
       userUid: auth?.currentUser?.uid,
       comment: newComment,
       createdAt: formatCommentDate(new Date())
@@ -107,7 +105,7 @@ export default function blogDetails({ params }: { params: { slug: string } }) {
   const detachListener = onSnapshot(collectionRef, (snapShot) => {
     const dataArr: DocumentData[] = []
     snapShot.forEach((doc) => {
-    let singleComment = doc.data();
+    const singleComment = doc.data();
     dataArr.push(singleComment);
     })
     setAllComments(dataArr);

@@ -3,13 +3,10 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import style from '@/app/dashboard/edit/[slug]/slug.module.css'
-import Markdown from 'react-markdown';
-import { addDoc, collection, doc, getDocs, query, updateDoc, where } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {  collection,  getDocs, query, where } from "firebase/firestore";
 import ReactMarkdown from "react-markdown";
-import { auth, db, storage } from "@/app/firebase/firebase-config";
-import { BlogCardType, CardData } from "@/types/blogCardType";
-import { blogType } from "@/types/blogType";
+import {  db } from "@/app/firebase/firebase-config";
+import {  CardData } from "@/types/blogCardType";
 import { updateBlog } from "@/app/firebase/firestore";
 
 
@@ -25,16 +22,16 @@ export default function EditBlog({ params }: { params: { slug: string } }) {
 
 
 
-    function makeSlug(title: string) {
-        if (!title) return
+    // function makeSlug(title: string) {
+    //     if (!title) return
 
-        return title
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9\s-]/g, '')
-            .replace(/\s+/g, '-')
-            .replace(/-+/g, '-');
-    }
+    //     return title
+    //         .toLowerCase()
+    //         .trim()
+    //         .replace(/[^a-z0-9\s-]/g, '')
+    //         .replace(/\s+/g, '-')
+    //         .replace(/-+/g, '-');
+    // }
 
     useEffect(() => {
         if (params.slug) {

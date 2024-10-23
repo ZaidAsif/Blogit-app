@@ -1,5 +1,4 @@
-import { useRouter } from "next/navigation";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { app } from "./firebase-config";
 
 export const auth = getAuth(app);

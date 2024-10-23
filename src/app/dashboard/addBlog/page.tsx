@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import style from '@/app/dashboard/addBlog/addBlog.module.css';
-import Markdown from 'react-markdown';
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { auth, db, storage } from "@/app/firebase/firebase-config";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";

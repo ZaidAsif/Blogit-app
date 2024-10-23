@@ -3,7 +3,6 @@
 import { onAuthStateChanged, sendEmailVerification } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import { auth } from '../firebase/firebaseAuth';
-import { useAuthContext } from '@/context/authContext';
 import { useEffect } from 'react';
 
 

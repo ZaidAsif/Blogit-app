@@ -1,12 +1,11 @@
 
   
 
-import { bc, blogType } from "@/types/blogType";
+import { bc } from "@/types/blogType";
 import { auth, db, storage } from "./firebase-config";
 import { toast } from "react-toastify";
 import { doc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useRouter } from "next/navigation";
 
 export async function updateBlog({
     title,

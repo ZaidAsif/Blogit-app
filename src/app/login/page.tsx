@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import { useAuthContext } from "@/context/authContext";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import style from './login.module.css'
 import { auth } from "../firebase/firebaseAuth";
 

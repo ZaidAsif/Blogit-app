@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import style from './signup.module.css'
 import { auth } from '../firebase/firebaseAuth';
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
-import { addDoc, collection, doc, getFirestore, setDoc } from 'firebase/firestore';
-import { app, db, storage } from '../firebase/firebase-config';
+import {doc, setDoc } from 'firebase/firestore';
+import {db, storage } from '../firebase/firebase-config';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
 

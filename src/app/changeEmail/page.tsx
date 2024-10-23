@@ -1,7 +1,7 @@
 // src/app/change-email/page.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { auth } from '../firebase/firebaseAuth';
 import { sendEmailVerification, updateEmail } from 'firebase/auth';

@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { auth } from '../firebase/firebaseAuth';
-import { onAuthStateChanged, updatePassword } from 'firebase/auth';
+import {  updatePassword } from 'firebase/auth';
 import style from '@/app/signup/signup.module.css'
 
 export default function ChangePassword() {
