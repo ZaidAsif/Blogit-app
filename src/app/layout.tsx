@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import AuthContextProvider from "@/context/authContext";
-import Navbar1 from "@/components/navbar1";
+import Navbar from "@/components/navbar";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/footer";
 
@@ -33,7 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <Navbar1 />
+      <Navbar />
       <Toaster position="top-right" />
         {children}
         <Footer />
