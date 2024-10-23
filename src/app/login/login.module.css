@@ -1,0 +1,8 @@
+.formh1 {
+    font-size: 30px ;
+    height:  50px ;
+    text-align: center ;
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+}
