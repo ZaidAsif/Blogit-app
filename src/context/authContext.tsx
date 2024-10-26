@@ -2,7 +2,7 @@
 
 import { app, db } from "@/app/firebase/firebase-config";
 import { UserType } from "@/types/userType";
-import { getAuth, onAuthStateChanged, signOut, User } from "firebase/auth";
+import { getAuth, onAuthStateChanged} from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, ReactNode, useEffect, useState } from "react";
@@ -25,14 +25,13 @@ export default function AuthContextProvider({children}: {children: ReactNode}) {
 
 
 
-    const route = useRouter();
     const auth = getAuth(app);
 
     useEffect(() => {
 
         onAuthStateChanged(auth, (loggedInUser) => {
             if (loggedInUser) {
-                let uid = loggedInUser.uid
+                const uid = loggedInUser.uid
                 fetchUserData(uid);
             } else {
                 setUser(null);
@@ -41,10 +40,10 @@ export default function AuthContextProvider({children}: {children: ReactNode}) {
     }, []);
 
     const fetchUserData = async (uid: string) => {
-        let docRef = doc(db, 'users', uid);
+        const docRef = doc(db, 'users', uid);
         try {
-            let userFound = await getDoc(docRef);
-            let user = userFound.data();
+            const userFound = await getDoc(docRef);
+            const user = userFound.data();
 
             if (!user) return
 

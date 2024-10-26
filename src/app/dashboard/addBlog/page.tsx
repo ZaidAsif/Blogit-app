@@ -157,7 +157,7 @@ export default function AddBlog() {
                         type="file"
                         className="file-input file-input-bordered w-full max-w-xs"
                         onChange={(e) => {
-                            let files = e.target.files
+                            const files = e.target.files
                             if (files?.length) {
                                 setImage(files[0]);
                             }

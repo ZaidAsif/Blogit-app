@@ -15,8 +15,8 @@ export default function ChangeEmail() {
     const handleChangeEmail = async () => {
         try {
             //   if (currentUser) {
-            await updateEmail(auth?.currentUser!, newEmail);
-            await sendEmailVerification(auth?.currentUser!);
+            await updateEmail(auth?.currentUser, newEmail);
+            await sendEmailVerification(auth?.currentUser);
             alert("Remember to verify your email after changing it! A verification email has been sent to your new E-mail")
              router.push('/home');
             //   }
@@ -25,9 +25,9 @@ export default function ChangeEmail() {
         }
     };
 
-    const handleVerifyEmail = () => {
-        sendEmailVerification(auth?.currentUser!);
-    }
+    // const handleVerifyEmail = () => {
+    //     sendEmailVerification(auth?.currentUser!);
+    // }
 
     return (
         <div className='flex flex-col justify-center items-center mt-20'>

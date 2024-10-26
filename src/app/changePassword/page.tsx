@@ -1,7 +1,7 @@
 // src/app/change-password/page.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { auth } from '../firebase/firebaseAuth';
 import {  updatePassword } from 'firebase/auth';
@@ -25,8 +25,7 @@ export default function ChangePassword() {
         await updatePassword(auth.currentUser!, newPassword).then(() => {
           // Update successful.
         }).catch((error) => {
-          // An error ocurred
-          // ...
+          console.log(error)
         });
         router.push('/home');
       

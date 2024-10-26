@@ -19,7 +19,7 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-        let collectionRef = collection(db, "blogs");
+    const collectionRef = collection(db, "blogs");
       // const querySnapshot = await getDocs(collectionRef);
       // const dataArray: CardData[] = [];
       // querySnapshot.forEach((doc) => {
@@ -28,7 +28,7 @@ export default function Dashboard() {
       const detachListener = onSnapshot(collectionRef, (snapShot) => {
         const dataArr: CardData[] = []
         snapShot.forEach((doc) => {
-        let singleBlog = doc.data();
+          const singleBlog = doc.data();
         dataArr.push(singleBlog);
         })
         setCards(dataArr);

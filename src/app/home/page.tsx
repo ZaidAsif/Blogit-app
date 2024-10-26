@@ -19,7 +19,6 @@ type allBlogsType = {
 }
 
 export default function ShowBlogs() {
-  const router = useRouter();
 
   const [allBlogs, setAllBlogs] = useState<allBlogsType[]>([]);
   const [selectedTag, setSelectedTag] = useState<string | undefined>();

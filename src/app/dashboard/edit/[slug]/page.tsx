@@ -51,10 +51,10 @@ export default function EditBlog({ params }: { params: { slug: string } }) {
 
     const fetchBlog = async () => {
         try {
-            let collectionRef = collection(db, 'blogs');
-            let q = where('slug', '==', params.slug);
+            const collectionRef = collection(db, 'blogs');
+            const q = where('slug', '==', params.slug);
 
-            let blogQuery = query(collectionRef, q);
+            const blogQuery = query(collectionRef, q);
 
             const querySnapshot = await getDocs(blogQuery);
             querySnapshot.forEach((doc) => {
@@ -121,7 +121,7 @@ export default function EditBlog({ params }: { params: { slug: string } }) {
                         type="file"
                         className="file-input file-input-bordered w-full max-w-xs"
                         onChange={(e) => {
-                            let files = e.target.files
+                            const files = e.target.files
                             if (files?.length) {
                                 setImage(files[0]);
                             }

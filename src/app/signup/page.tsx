@@ -14,7 +14,6 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [profilePic, setProfilePic] = useState<File>()
-  const [imageUrl, setImageUrl] = useState<string | undefined>()
 
   // const [userEmail, setUserEmail] = useState<string>();
   // const [uid, setUid] = useState<string>();
@@ -48,17 +47,16 @@ export default function Signup() {
   const uploadImage = (email: string, uid: string) => {
     if (!email || !password || !profilePic) return
 
-    let storageRef = ref(storage, `images/${makeImageName()}`);
+    const storageRef = ref(storage, `images/${makeImageName()}`);
     const uploadTask = uploadBytesResumable(storageRef, profilePic);
     uploadTask.on(
       "state_changed",
-      (snapshot) => {},
-      (error) => {},
+      (snapshot) => {console.log(snapshot)},
+      (error) => {console.log(error)},
       async () => {
         // Retrieve the image URL once the upload is complete
         const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
         console.log('File available at', downloadURL);
-        setImageUrl(downloadURL); // Save the image URL to state
 
         // Only call saveUserInFirestore after the downloadURL is available
         await saveUserInFirestore(email, uid, downloadURL);
@@ -67,21 +65,21 @@ export default function Signup() {
   }
   const saveUserInFirestore = async (email: string, uid: string, downloadURL: string) => {
     
-    let user = {
+    const user = {
       email,
       uid,
       profilePic: downloadURL,
       isAdmin: false
     }
 
-    let docRef = doc(db, "users", uid);
+    const docRef = doc(db, "users", uid);
     await setDoc(docRef, user);
   }
 
   const makeImageName = () => {
-    let imageName: string[] | undefined = profilePic?.name.split(".");
-    let imageType = imageName![imageName!.length - 1];
-    let newName = `${crypto.randomUUID()}.${imageType}`;
+    const imageName: string[] | undefined = profilePic?.name.split(".");
+    const imageType = imageName![imageName!.length - 1];
+    const newName = `${crypto.randomUUID()}.${imageType}`;
     return newName;
   };
 
@@ -146,7 +144,7 @@ export default function Signup() {
             type="file"
             className="file-input file-input-bordered file-input-primary w-full max-w-xs"
             onChange={(e) => {
-              let files = e.target.files
+              const files = e.target.files
               if (files?.length) {
                 setProfilePic(files[0]);
               }

@@ -16,7 +16,7 @@ export default function VerifyEmail() {
         }
   
       })
-    }, []);
+    }, [auth]);
     
     // const handleVerifyEmail = async () => {
     //   try {

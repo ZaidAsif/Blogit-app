@@ -108,7 +108,7 @@ export default function Login() {
         style={{ color: '#2fb7a4', textDecoration: 'underline' }}
         onClick={() => router.push('/signup')}
       >
-        Don't have an account! Signup here
+        Do not have an account! Signup here
       </button>
     </div>
     </div>
