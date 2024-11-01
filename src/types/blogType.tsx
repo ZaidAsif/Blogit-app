@@ -12,5 +12,5 @@ export type blogType = {
   };
 
 export type bc = {
-  title: string | undefined; tag: string | undefined; mark: string | undefined; editedDate: Date; firebaseId: string | undefined; image: File | undefined; pic: string | undefined
+  title: string | undefined; tag: string | undefined; mark: string | undefined; editedDate: Date; firebaseId: string | undefined; image: File | undefined; pic: string | undefined; uid?: string | undefined
 }

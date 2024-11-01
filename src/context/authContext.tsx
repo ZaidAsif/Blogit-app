@@ -4,7 +4,6 @@ import { app, db } from "@/app/firebase/firebase-config";
 import { UserType } from "@/types/userType";
 import { getAuth, onAuthStateChanged} from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { useRouter } from "next/navigation";
 import { createContext, useContext, ReactNode, useEffect, useState } from "react";
 
 
