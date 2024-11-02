@@ -21,11 +21,11 @@ export default function BlogCard({blogImage, title, mark, slug, tag} : BlogCardT
         ) : null}
       </figure>
       <div className="p-5">
-        <h2 className="text-xl font-semibold mb-2 line-clamp-1 ">{title}</h2>
         <div className="flex justify-center flex-wrap gap-2 mb-3">
-          <div className="badge badge-neutral badge-outline bg-red-100">{tag}</div>
+          <div className="badge badge-neutral badge-outline bg-red-300 font-semibold">{tag}</div>
         </div>
-        <div className="text-center line-clamp-4 mb-4">
+        <h2 className="text-xl font-semibold mb-2 line-clamp-1 text-center">{title}</h2>
+        <div className="text-center line-clamp-4 mb-4 font-sansawe65">
           {<ReactMarkdown>{mark}</ReactMarkdown>}
         </div>
         <div className="flex justify-center mt-4">
