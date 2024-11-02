@@ -138,29 +138,29 @@ return () => detachListener();
                 className="w-full rounded-lg shadow-md h-auto"
                 src={blog.image}
                 alt="Blog Image"
-                width={750}
-                height={750}
+                width={550}
+                height={550}
               />
 
-              <h1 className="mt-6 text-4xl font-bold text-gray-900 text-center">
+              <h1 className="mt-6 text-4xl font-bold text-gray-900 text-center font-sans ">
                 {blog.title}
               </h1>
 
               <div className="text-center mt-4 text-gray-600">
                 <div className="mb-2">
                   
-                  <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-red-100 text-neutral rounded">
+                  <span className="inline-flex items-center px-2 py-1 badge badge-neutral badge-outline bg-red-300 font-semibold ">
                     {blog.tag}
                   </span>
                 </div>
 
                 <div className="mb-4 prose">
                   <span className="font-bold ">Created At:</span>{" "}
-                  <span>{`${formatDate(blog.dateCreated)}     `}</span>
+                  <span className="font-medium italic">{`${formatDate(blog.dateCreated)}     `}</span>
                   {blog.editedDate ? (
                     <>
                       |<span className="font-bold">     Edited At:</span>{" "}
-                      <span>{blog.editedDate && formatDate(blog.editedDate)}</span>
+                      <span className="font-medium">{blog.editedDate && formatDate(blog.editedDate)}</span>
                     </>
                   ) : null}
                 </div>
@@ -192,7 +192,7 @@ return () => detachListener();
 
               {
                 allComments.map(({comment, createdAt}) => (
-                  <div className="chat chat-start w-2/5">
+                  <div key={comment + createdAt} className="chat chat-start w-2/5">
                     <div className="chat-bubble">
                     <p className="font-semibold text-sm">{formatCommentDate(createdAt)}</p>
                     <p>{comment}</p>
