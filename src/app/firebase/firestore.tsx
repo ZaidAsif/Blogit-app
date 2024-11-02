@@ -7,6 +7,15 @@ import { toast } from "react-toastify";
 import { doc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
+type newBlogType = {
+    title?: string,
+    tag?: string,
+    mark?: string,
+    uid?: string,
+    editedDate?: Date,
+    image?: string
+}
+
 export async function updateBlog({
     title,
     tag,
@@ -28,7 +37,7 @@ export async function updateBlog({
     }
 
     try {
-        const newBlog: any = {
+        const newBlog: newBlogType = {
             title,
             tag,
             mark,
