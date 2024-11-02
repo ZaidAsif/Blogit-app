@@ -4,8 +4,9 @@
 import {  useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { auth } from '../firebase/firebaseAuth';
-import { sendEmailVerification, updateEmail } from 'firebase/auth';
+import { onAuthStateChanged, sendEmailVerification, updateEmail } from 'firebase/auth';
 import style from '@/app/signup/signup.module.css'
+import { toast } from 'react-toastify';
 export default function ChangeEmail() {
     const [newEmail, setNewEmail] = useState('');
     const router = useRouter();
@@ -14,20 +15,23 @@ export default function ChangeEmail() {
 
     const handleChangeEmail = async () => {
         try {
-            //   if (currentUser) {
-            await updateEmail(auth?.currentUser, newEmail);
-            await sendEmailVerification(auth?.currentUser);
-            alert("Remember to verify your email after changing it! A verification email has been sent to your new E-mail")
-             router.push('/home');
-            //   }
+          onAuthStateChanged(auth, async (loggedInUser) => {
+            if (loggedInUser) {
+              await updateEmail(loggedInUser, newEmail);
+              await sendEmailVerification(loggedInUser);
+              alert("Remember to verify your email after changing it! A verification email has been sent to your new E-mail")
+               router.push('/home');
+            } else {
+                toast.error('user not found')
+            }
+          })
+
         } catch (error) {
             console.error('Error changing email:', error);
         }
     };
 
-    // const handleVerifyEmail = () => {
-    //     sendEmailVerification(auth?.currentUser!);
-    // }
+
 
     return (
         <div className='flex flex-col justify-center items-center mt-20'>
